@@ -96,7 +96,10 @@
     <button class="btn btn-success" onclick="compter()">Clique ici</button>
 
     <h4 class="mt-3" id="compteur">0</h4>
-
+    !-- Compteur visiteurs -->
+  </div>
+  <div class="card p-3 shadow">
+    <h4>👁 Visiteurs : <span id="visits">0</span></h4>
   </div>
 </div>
 
@@ -181,6 +184,11 @@ function compter() {
   localStorage.setItem("clicks", count);
   document.getElementById("compteur").innerText = count;
 }
+  fetch('https://api.countapi.xyz/hit/jeremie-follow/visites')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visits').innerText = data.value;
+  });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
