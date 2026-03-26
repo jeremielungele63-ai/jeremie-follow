@@ -99,6 +99,10 @@
   <div class="card p-3 shadow">
     <h4>👁 Visiteurs : <span id="visits">0</span></h4>
   </div>
+    <p>🌍 Pays : <span id="country">...</span></p>
+    <p>🔥 Visiteurs en ligne : <span id="online"></span></p>
+    
+    
 </div>
 
 <!-- BOUTONS -->
@@ -187,6 +191,13 @@ function compter() {
   .then(data => {
     document.getElementById('visits').innerText = data.value;
   });
+  fetch("https://ipapi.co/json/")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("country").innerText = data.country_name;
+  });
+  let online = Math.floor(Math.random() * 10) + 1;
+document.getElementById("online").innerText = online;
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
